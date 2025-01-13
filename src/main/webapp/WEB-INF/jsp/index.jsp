@@ -148,7 +148,7 @@ background-attachment: fixed;">
                                     Cookies.remove('loginStatus');
                                 }
                                 $("#info").text("提示:登陆成功，跳转中...");
-                                window.location.href = "/reader_main.html";
+                                window.location.href = "/reader_books.html";
                             } else if (data.stateCode.trim() === "3") {
                                 alert("提示:验证码错误！(区分大小写)");
                             }
