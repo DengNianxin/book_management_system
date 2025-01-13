@@ -34,7 +34,7 @@
             border-radius: 10px;
             padding: 40px 50px;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-            margin: 40px auto;
+            margin: 100px auto;
             max-width: 700px;
             text-align: left;
         }
