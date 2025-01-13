@@ -29,6 +29,26 @@
             margin: 0 auto;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             border-radius: 8px;
+            display: flex;
+            align-items: stretch;
+        }
+
+        /* 添加搜索按钮样式 */
+        .search-container .input-group-btn {
+            display: flex;
+        }
+
+        .search-container .input-group-btn .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 0 20px;
+            margin: 0;
+        }
+
+        .search-container .form-control {
+            height: 38px;  /* 设置固定高度 */
         }
 
         /* 提示框样式 */
