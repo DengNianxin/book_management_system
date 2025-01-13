@@ -62,16 +62,16 @@ public class LendController {
     public String bookLend(HttpServletRequest request, RedirectAttributes redirectAttributes) {
         long bookId = Long.parseLong(request.getParameter("bookId"));
         long readerId = ((ReaderCard) request.getSession().getAttribute("readercard")).getReaderId();
-        if (lendService.lendBook(bookId, readerId)) {
-            if(lendService.getOverdueLends(readerId).isEmpty()){//没有逾期未还的书
+
+        if (lendService.getOverdueLends(readerId).isEmpty()) {//没有逾期未还的书
+            if (lendService.lendBook(bookId, readerId)) {
                 redirectAttributes.addFlashAttribute("succ", "图书借阅成功！");
-            }else {//有逾期未还的图书
-                redirectAttributes.addFlashAttribute("error", "图书借阅失败！请先归还逾期图书");
-                return "redirect:/reader_duelist.html";
             }
-        } else {
-            redirectAttributes.addFlashAttribute("error", "图书借阅失败！");
+        } else {//有逾期未还的图书
+            redirectAttributes.addFlashAttribute("error", "图书借阅失败！请先归还逾期图书");
+            return "redirect:/reader_duelist.html";
         }
+
         return "redirect:/reader_books.html";
     }
 
