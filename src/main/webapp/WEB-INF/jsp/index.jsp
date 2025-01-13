@@ -227,6 +227,10 @@
                             alert("提示: 登录成功，跳转中...");
                             if (remember) rememberLogin(id, passwd, remember);
                             window.location.href = "/admin_books.html";
+                        } else if (data.stateCode === '2'){
+                            alert("提示: 登录成功，跳转中...");
+                            if (remember) rememberLogin(id, passwd, remember);
+                            window.location.href = "/reader_books.html";
                         } else if (data.stateCode === "3") {
                             alert("提示: 验证码错误！(区分大小写)");
                         }
