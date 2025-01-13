@@ -143,8 +143,12 @@
                                 <td>${detail.pubdate}</td>
                             </tr>
                             <tr>
-                                <th>分类号</th>
-                                <td>${detail.classId}</td>
+                                <th>分类</th>
+                                <td>${detail.className}</td>
+                            </tr>
+                            <tr>
+                                <th>位置</th>
+                                <td>${detail.location}</td>
                             </tr>
                             <tr>
                                 <th>状态</th>
