@@ -157,9 +157,6 @@
                             <c:if test="${!empty alog.backDate}">
                                 <td style="color: green;">已还</td>
                             </c:if>
-                            <!-- <c:if test="${alog.overdue == true}">
-                                <td style="color: orange;">超期</td>
-                            </c:if> -->
                         </tr>
                     </c:forEach>
                 </tbody>
