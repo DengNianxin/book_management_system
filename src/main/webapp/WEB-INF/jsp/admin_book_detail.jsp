@@ -31,8 +31,15 @@
             font-size: 20px;
         }
 
+        .image-container {
+            display: flex;
+            align-items: center; /* 垂直居中 */
+            justify-content: center; /* 水平居中 */
+        }
+
         .image-container img {
-            max-width: 100%;
+            max-height: 100%; /* 统一图片高度 */
+            max-width: 100%; /* 防止图片溢出 */
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -45,12 +52,24 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        th {
-            width: 25%;
-        }
-
         .table th, .table td {
             vertical-align: middle !important;
+        }
+
+        .row {
+            display: flex;
+            align-items: center; /* 保证左右两部分在竖直方向居中 */
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .row {
+                flex-direction: column; /* 小屏幕下上下排列 */
+            }
+
+            .image-container img {
+                max-height: 200px; /* 小屏幕下图片高度调整 */
+            }
         }
     </style>
     <script>
