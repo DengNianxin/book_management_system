@@ -2,25 +2,26 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>《 ${detail.name}》</title>
-    <link rel="shortcut icon"  href="img/library.ico" />
+    <title>《${detail.name}》</title>
+    <link rel="shortcut icon" href="img/library.ico"/>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery-3.2.1.js"></script>
-    <script src="js/bootstrap.min.js" ></script>
+    <script src="js/bootstrap.min.js"></script>
     <script>
         $(function () {
             $('#header').load('reader_header.html');
         })
     </script>
 </head>
-<body background="img/lizhi.jpg" style=" background-repeat:no-repeat ;
-background-size:100% 100%;
-background-attachment: fixed;">
+<body background="img/lizhi.jpg"
+      style="background-repeat:no-repeat; background-size:100% 100%; background-attachment: fixed;">
+
 <div id="header"></div>
-<div class="col-xs-6 col-md-offset-3" style="position: relative;top: 3%">
+
+<div class="col-xs-6 col-md-offset-3" style="position: relative; top: 3%;">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h3 class="panel-title">《 ${detail.name}》</h3>
+            <h3 class="panel-title">《${detail.name}》</h3>
         </div>
         <div class="panel-body">
             <table class="table table-hover">
@@ -62,19 +63,21 @@ background-attachment: fixed;">
                 </tr>
                 <tr>
                     <th>状态</th>
-                    <c:if test="${detail.number>1}">
+                    <c:if test="${detail.number > 0}">
                         <td>在馆</td>
                     </c:if>
-                    <c:if test="${detail.number==0}">
+                    <c:if test="${detail.number == 0}">
                         <td>借出</td>
                     </c:if>
-
                 </tr>
-                </tbody>
             </table>
         </div>
     </div>
 
+    <!-- 返回按钮 -->
+    <div class="text-center">
+        <a href="reader_books.html" class="btn btn-primary">关闭</a>
+    </div>
 </div>
 
 </body>

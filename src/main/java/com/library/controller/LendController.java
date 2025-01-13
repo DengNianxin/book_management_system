@@ -1,5 +1,6 @@
 package com.library.controller;
 
+import com.library.bean.Lend;
 import com.library.bean.ReaderCard;
 import com.library.service.BookService;
 import com.library.service.LendService;
@@ -10,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 public class LendController {
@@ -61,9 +63,14 @@ public class LendController {
         long bookId = Long.parseLong(request.getParameter("bookId"));
         long readerId = ((ReaderCard) request.getSession().getAttribute("readercard")).getReaderId();
         if (lendService.lendBook(bookId, readerId)) {
-            redirectAttributes.addFlashAttribute("succ", "图书借阅成功！");
+            if(lendService.getOverdueLends(readerId).isEmpty()){//没有逾期未还的书
+                redirectAttributes.addFlashAttribute("succ", "图书借阅成功！");
+            }else {//有逾期未还的图书
+                redirectAttributes.addFlashAttribute("error", "图书借阅失败！请先归还逾期图书");
+                return "redirect:/reader_duelist.html";
+            }
         } else {
-            redirectAttributes.addFlashAttribute("succ", "图书借阅成功！");
+            redirectAttributes.addFlashAttribute("error", "图书借阅失败！");
         }
         return "redirect:/reader_books.html";
     }
@@ -78,5 +85,15 @@ public class LendController {
             redirectAttributes.addFlashAttribute("error", "图书归还失败！");
         }
         return "redirect:/reader_books.html";
+    }
+
+    @RequestMapping("/reader_duelist.html")
+    public ModelAndView toReaderDueList(HttpServletRequest request) {
+        ReaderCard readerCard = (ReaderCard) request.getSession().getAttribute("readercard");
+        long readerId = readerCard.getReaderId();
+        List<Lend> overdueLends = lendService.getOverdueLends(readerId);
+        ModelAndView modelAndView = new ModelAndView("reader_duelist");
+        modelAndView.addObject("overdueLends", overdueLends);
+        return modelAndView;
     }
 }

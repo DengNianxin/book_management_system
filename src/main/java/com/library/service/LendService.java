@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Service
 public class LendService {
@@ -29,6 +31,17 @@ public class LendService {
 
     public int deleteLend(long serNum) {
         return lendDao.deleteLend(serNum);
+    }
+
+    public List<Lend> getOverdueLends(long readerId) {
+        List<Lend> lends = lendDao.myLendList(readerId);
+        List<Lend> overdueLends = new ArrayList<>();
+        for (Lend lend : lends) {
+            if (lend.getBackDate() == null && new Date().after(lend.getDueDate())) {
+                overdueLends.add(lend);
+            }
+        }
+        return overdueLends;
     }
 
 }

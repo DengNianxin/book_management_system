@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>《 ${detail.name}》</title>
-    <link rel="shortcut icon"  href="img/library.ico" />
+    <link rel="shortcut icon" href="img/library.ico"/>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -70,7 +70,10 @@ background-attachment: fixed;">
             </table>
         </div>
     </div>
-
+    <!-- 返回按钮 -->
+    <div class="text-center">
+        <a href="admin_books.html" class="btn btn-primary">关闭</a>
+    </div>
 </div>
 
 </body>
