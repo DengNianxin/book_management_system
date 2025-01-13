@@ -3,10 +3,7 @@
 <html>
 <head>
     <title>全部读者</title>
-<<<<<<< HEAD
     <link rel="shortcut icon"  href="img/library.ico" />
-=======
->>>>>>> d77b5eef39c3e2a8b33d82670a8cae4b5d5e73b4
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/bootstrap.min.js" ></script>
@@ -44,7 +41,7 @@ background-attachment: fixed;">
 <div class="panel panel-default" style="position:relative;top: 80px;width: 90%;margin-left: 5%">
     <div class="panel-heading">
 
-        <p><em id="num">15</em>秒后，自动跳转主页（请记住自己的读者号）</p>
+        <p><em id="num">5</em>秒后，自动跳转主页（请记住自己的读者号）</p>
     </div>
     <div class="panel-body">
         <table class="table table-hover" >
@@ -66,7 +63,7 @@ background-attachment: fixed;">
     </div>
 </div>
 <script>
-    var i =15;
+    var i =5;
     function djs() {
         if(i==0){
             window.location.href = "/index.html";
