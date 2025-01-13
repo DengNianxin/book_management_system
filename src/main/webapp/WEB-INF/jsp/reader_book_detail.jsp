@@ -40,7 +40,7 @@
         }
 
         .book-cover img {
-            width: 350px;
+            width: 100%;
             max-height: 100%; /* 调整最大高度 */
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
