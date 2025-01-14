@@ -16,8 +16,8 @@ public class Book implements Serializable {
     private BigDecimal price;
     private Date pub_date;
     private String class_name;
-    private int number;
     private String location;
+    private int number;
 
     public long getBookId() {
         return book_id;
@@ -99,6 +99,14 @@ public class Book implements Serializable {
         this.class_name = class_name;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
     public int getNumber() {
         return number;
     }
@@ -107,11 +115,5 @@ public class Book implements Serializable {
         this.number = number;
     }
 
-    public String getLocation() {
-        return location;
-    }
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>全部读者</title>
@@ -128,7 +129,9 @@
                                 <td><c:out value="${reader.readerId}" /></td>
                                 <td><c:out value="${reader.name}" /></td>
                                 <td><c:out value="${reader.sex}" /></td>
-                                <td><c:out value="${reader.birth}" /></td>
+                                <td>
+                                    <fmt:formatDate value="${reader.birth}" pattern="yyyy-MM-dd"/>
+                                </td>
                                 <td><c:out value="${reader.address}" /></td>
                                 <td><c:out value="${reader.phone}" /></td>
                                 <td>

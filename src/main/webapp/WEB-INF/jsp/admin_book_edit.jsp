@@ -107,15 +107,16 @@
         $(document).ready(function () {
             $("#addbook").submit(function () {
                 if (
-                    $("#name").val() === '' || 
-                    $("#author").val() === '' || 
-                    $("#publish").val() === '' || 
-                    $("#isbn").val() === '' || 
-                    $("#introduction").val() === '' || 
-                    $("#language").val() === '' || 
-                    $("#price").val() === '' || 
-                    $("#pubstr").val() === '' || 
-                    $("#classId").val() === '' || 
+                    $("#name").val() === '' ||
+                    $("#author").val() === '' ||
+                    $("#publish").val() === '' ||
+                    $("#isbn").val() === '' ||
+                    $("#introduction").val() === '' ||
+                    $("#language").val() === '' ||
+                    $("#price").val() === '' ||
+                    $("#pubstr").val() === '' ||
+                    $("#className").val() === '' ||
+                    $("location").val() === '' ||
                     $("#number").val() === ''
                 ) {
                     alert("请填入完整图书信息！");
@@ -180,8 +181,13 @@
                         </div>
                         <!-- 分类号 -->
                         <div class="input-group">
-                            <span class="input-group-addon">分类号</span>
-                            <input type="text" class="form-control" name="classId" id="classId" value="${detail.classId}">
+                            <span class="input-group-addon">分类</span>
+                            <input type="text" class="form-control" name="className" id="className" value="${detail.className}">
+                        </div>
+                        <!-- 位置-->
+                        <div class="input-group">
+                            <span class="input-group-addon">位置</span>
+                            <input type="text" class="form-control" name="location" id="location" value="${detail.location}">
                         </div>
                         <!-- 数量 -->
                         <div class="input-group">

@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -136,11 +138,13 @@
                             </tr>
                             <tr>
                                 <th>价格</th>
-                                <td>${detail.price}</td>
+                                <td>￥${detail.price}</td>
                             </tr>
                             <tr>
                                 <th>出版日期</th>
-                                <td>${detail.pubdate}</td>
+                                <td>
+                                    <fmt:formatDate value="${detail.pubdate}" pattern="yyyy-MM-dd"/>
+                                </td>
                             </tr>
                             <tr>
                                 <th>分类</th>
@@ -148,7 +152,26 @@
                             </tr>
                             <tr>
                                 <th>位置</th>
-                                <td>${detail.location}</td>
+                                <td>
+                                    <c:set var="location" value="${detail.location}" />
+                                    <c:set var="floor" value="${fn:substring(location, 1, 3)}楼" />
+                                    <c:set var="area" value="${fn:substring(location, 3, 4)}区" />
+                                    <c:set var="shelf" value="${fn:substring(location, 5, 7)}号书架" />
+                                    <c:set var="layer" value="${fn:substring(location, 8, 10)}层" />
+                                    <c:set var="side" value="${fn:substring(location, 10, 11)}" />
+                                    <c:choose>
+                                        <c:when test="${side eq 'R'}">
+                                            <c:set var="side" value="右侧" />
+                                        </c:when>
+                                        <c:when test="${side eq 'M'}">
+                                            <c:set var="side" value="中间" />
+                                        </c:when>
+                                        <c:when test="${side eq 'L'}">
+                                            <c:set var="side" value="左侧" />
+                                        </c:when>
+                                    </c:choose>
+                                    <c:out value="${floor} ${area} ${shelf} ${layer} ${side}" />
+                                </td>
                             </tr>
                             <tr>
                                 <th>状态</th>

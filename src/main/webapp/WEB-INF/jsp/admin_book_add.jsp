@@ -130,7 +130,8 @@
                     $("#language").val() === '' || 
                     $("#price").val() === '' || 
                     $("#pubstr").val() === '' || 
-                    $("#classId").val() === '' || 
+                    $("#className").val() === '' ||
+                    $("#location").val() === '' ||
                     $("#number").val() === ''
                 ) {
                     alert("请填入完整图书信息！");
@@ -188,10 +189,14 @@
                 <label for="pubstr">出版日期</label>
                 <input type="date" class="form-control" name="pubstr" id="pubstr">
             </div>
-            <!-- 分类号 -->
+            <!-- 分类 -->
             <div class="form-group">
-                <label for="classId">分类号</label>
-                <input type="text" class="form-control" name="classId" id="classId" placeholder="请输入分类号">
+                <label for="className">分类</label>
+                <input type="text" class="form-control" name="className" id="className" placeholder="请输入分类">
+            </div>
+            <div class="form-group">
+                <label for="location">位置</label>
+                <input type="text" class="form-control" name="className" id="location" placeholder="请输入分类">
             </div>
             <!-- 数量 -->
             <div class="form-group">

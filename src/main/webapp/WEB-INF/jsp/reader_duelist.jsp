@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>逾期未还的图书清单</title>
@@ -53,8 +54,8 @@
                     <thead>
                     <tr>
                         <th>服务号</th>
-                        <th>书id</th>
-                        <th>读者id</th>
+                        <th>书号</th>
+                        <th>读者证号</th>
                         <th>借出日期</th>
                         <th>应还日期</th>
                         <th>操作</th>
@@ -66,8 +67,12 @@
                             <td>${lend.ser_num}</td>
                             <td>${lend.bookId}</td>
                             <td>${lend.readerId}</td>
-                            <td>${lend.lendDate}</td>
-                            <td>${lend.dueDate}</td>
+                            <td>
+                                <fmt:formatDate value="${lend.lendDate}" pattern="yyyy-MM-dd"/>
+                            </td>
+                            <td>
+                                <fmt:formatDate value="${lend.dueDate}" pattern="yyyy-MM-dd"/>
+                            </td>
                             <td>
                                 <a href="returnbook.html?bookId=${lend.bookId}">
                                     <button type="button" class="btn btn-danger btn-xs">归还</button>

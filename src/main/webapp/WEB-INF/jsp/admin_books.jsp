@@ -140,6 +140,7 @@
                 <table class="table table-hover table-striped">
                     <thead>
                         <tr>
+                            <th>书号</th>
                             <th>书名</th>
                             <th>作者</th>
                             <th>出版社</th>
@@ -154,11 +155,12 @@
                     <tbody>
                         <c:forEach items="${books}" var="book">
                             <tr>
+                                <td><c:out value="${book.bookId}" /></td>
                                 <td><c:out value="${book.name}" /></td>
                                 <td><c:out value="${book.author}" /></td>
                                 <td><c:out value="${book.publish}" /></td>
                                 <td><c:out value="${book.isbn}" /></td>
-                                <td><c:out value="${book.price}" /></td>
+                                <td><c:out value="￥${book.price}" /></td>
                                 <td><c:out value="${book.number}" /></td>
                                 <td>
                                     <a href="admin_book_detail.html?bookId=<c:out value='${book.bookId}'/>">

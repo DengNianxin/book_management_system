@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>我的借还</title>
@@ -139,26 +140,37 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>图书号</th>
+                        <th>书号</th>
                         <th>借出日期</th>
                         <th>归还日期</th>
                         <th>状态</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach items="${list}" var="alog">
-                        <tr>
-                            <td><c:out value="${alog.bookId}"></c:out></td>
-                            <td><c:out value="${alog.lendDate}"></c:out></td>
-                            <td><c:out value="${alog.backDate}"></c:out></td>
-                            <c:if test="${empty alog.backDate}">
-                                <td style="color: red;">未还</td>
-                            </c:if>
-                            <c:if test="${!empty alog.backDate}">
-                                <td style="color: green;">已还</td>
-                            </c:if>
-                        </tr>
-                    </c:forEach>
+                <c:forEach items="${list}" var="alog">
+                    <tr>
+                        <td><c:out value="${alog.bookId}"></c:out></td>
+                        <td>
+                            <fmt:formatDate value="${alog.lendDate}" pattern="yyyy-MM-dd"/>
+                        </td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${empty alog.backDate}">
+                                    -
+                                </c:when>
+                                <c:otherwise>
+                                    <fmt:formatDate value="${alog.backDate}" pattern="yyyy-MM-dd"/>
+                                </c:otherwise>
+                            </c:choose>
+                        </td>
+                        <c:if test="${empty alog.backDate}">
+                            <td style="color: red;">未还</td>
+                        </c:if>
+                        <c:if test="${!empty alog.backDate}">
+                            <td style="color: green;">已还</td>
+                        </c:if>
+                    </tr>
+                </c:forEach>
                 </tbody>
             </table>
         </div>

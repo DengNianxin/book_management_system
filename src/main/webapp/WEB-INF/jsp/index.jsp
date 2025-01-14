@@ -126,7 +126,7 @@
 </head>
 <body>
 <!-- 页面标题 -->
-<h2>图 书 馆</h2>
+<h2>图书管理系统</h2>
 
 <!-- 登录表单 -->
 <div class="panel panel-default" id="login">
@@ -170,7 +170,7 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
-    <strong>欢迎登录！</strong> 页面将在3秒后自动跳转...
+    <strong>欢迎登录！</strong> 页面将自动跳转...
 </div>
 
 <!-- 脚本 -->
@@ -234,12 +234,12 @@
                         // 显示欢迎信息
                         $('#welcomeAlert').show();
 
-                        // 设置定时器，3秒后自动关闭警告框并跳转
+                        // 设置定时器，1秒后自动关闭警告框并跳转
                         setTimeout(function() {
                             $('#welcomeAlert').alert('close');
                             if (remember) rememberLogin(id, passwd, remember);
                             window.location.href = "/admin_books.html";
-                        }, 3000); // 3000毫秒 = 3秒
+                        }, 1000); // 1000毫秒 = 1秒
                     } else if (data.stateCode === '2'){
                         // 显示欢迎信息
                         $('#welcomeAlert').show();
@@ -249,7 +249,7 @@
                             $('#welcomeAlert').alert('close');
                             if (remember) rememberLogin(id, passwd, remember);
                             window.location.href = "/reader_books.html";
-                        }, 3000); // 3000毫秒 = 3秒
+                        }, 1000); // 1000毫秒 = 1秒
                     } else if (data.stateCode === "3") {
                         alert("提示: 验证码错误！(区分大小写)");
                     }
